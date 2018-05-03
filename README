@@ -1,0 +1,31 @@
+A common problem with bluesombrero is people register
+a player using different bluesom accounts from season
+to season.  Mom may use her account to register Mary
+one season and Dad my register her using a different
+account the next season.
+
+This causes an issue because the player's rating does
+not carry over to the newly registered player. (The
+player retains their AYSO ID but is issued a new
+bluesom player id. And ratings are tied to player
+ids, not AYSO IDs. Quite annoying.
+
+This tool takes two enrollment reports. For players
+in the right report, it looks to see if they are
+missing a rating. And if they are, it tries to find
+their rating from the left report.
+
+Example:
+./findratings.py --left my2017.csv my2018.csv
+
+This will spit out the names and ratings of all
+players in the my2018 report that do not have
+a rating in my2018 but do have a rating in my2017.
+
+The format of the enrollment reports must conform
+to this...
+AYSO ID: column 24
+Evaluation: column 25
+Player First Name: column 4
+Player Last Name: column 5
+
