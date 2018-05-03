@@ -42,6 +42,8 @@ def find_players_missing_rating(left, right):
         result.append(
             (ayso_id, details['fname'], details['lname'], details['rating']))
 
+    # sort by player last name
+    result = sorted(result, key=lambda x: x[2].lower())
     return result
 
 
@@ -66,7 +68,6 @@ def main(args):
     left = read_file(args.left)
     right = read_file(args.right)
     found_ratings = find_players_missing_rating(left, right)
-    found_ratings = sorted(found_ratings, key=lambda x: x[2].lower())
     output(found_ratings)
 
 
