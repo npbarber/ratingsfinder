@@ -16,11 +16,12 @@ missing a rating. And if they are, it tries to find
 their rating from the left report.
 
 Example:
-./findratings.py --left my2017.csv my2018.csv
+./findratings.py --left my2017.csv --right my2018.csv
 
 This will spit out the names and ratings of all
-players in the my2018 report that do not have
-a rating in my2018 but do have a rating in my2017.
+players in the my2018.csv report that do not have
+a rating in my2018.csv but do have a rating in
+my2017.csv.
 
 The format of the enrollment reports must conform
 to this...
