@@ -1,18 +1,19 @@
 #!/usr/bin/env python
 
 import argparse
+import csv
 
 
 def read_file(filename):
     result = {}
     f = open(filename, 'r')
     with f:
-        for line in f:
-            parts = line.split('","')
-            ayso_id = parts[23]
-            rating = parts[26]
-            first_name = parts[4]
-            last_name = parts[5]
+        r = csv.reader(f, delimiter=',', quotechar='"')
+        for line in r:
+            ayso_id = line[23]
+            rating = line[26]
+            first_name = line[4]
+            last_name = line[5]
             result[ayso_id] = {
                 'rating': rating,
                 'fname': first_name,
